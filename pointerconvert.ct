@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"PointerConvert Info"</Description>
+      <Options moHideChildren="1"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <GroupHeader>1</GroupHeader>
+      <Address>pointerdata</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"PointerConvert Script (Enable to Run)"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"KINGDOM HEARTS FINAL MIX.exe"+103480)
+alloc(pointerdata,24)
+label(returnhere)
+label(originalcode)
+label(exit)
+registerSymbol(pointerdata)
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+push rax
+push rcx
+push rdx
+push r8
+push r9
+push r10
+xor rcx,rcx
+mov rcx,[pointerdata]
+call "KINGDOM HEARTS FINAL MIX.exe"+38AD40
+mov [pointerdata+8],eax
+xor rcx,rcx
+mov ecx,[pointerdata+12]
+call "KINGDOM HEARTS FINAL MIX.exe"+38AD70
+mov [pointerdata+16],rax
+pop r10
+pop r9
+pop r8
+pop rdx
+pop rcx
+pop rax
+
+
+originalcode:
+mov rcx,[rbx+000003E8]
+
+exit:
+jmp returnhere
+
+"KINGDOM HEARTS FINAL MIX.exe"+103480:
+jmp newmem
+nop 2
+returnhere:
+
+
+
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(data)
+"KINGDOM HEARTS FINAL MIX.exe"+103480:
+db 48 8B 8B E8 03 00 00
+//mov rcx,[rbx+000003E8]
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"8To4Convert"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>+0</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1</ID>
+              <Description>"Input"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>pointerdata</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>4</ID>
+              <Description>"Output"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>+8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"4To8Convert"</Description>
+          <Options moHideChildren="1"/>
+          <ShowAsSigned>0</ShowAsSigned>
+          <GroupHeader>1</GroupHeader>
+          <Address>+12</Address>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>6</ID>
+              <Description>"Input"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>+0</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>7</ID>
+              <Description>"Output"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>8 Bytes</VariableType>
+              <Address>+4</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
